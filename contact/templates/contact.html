@@ -1,0 +1,23 @@
+
+<!-- saved from url=(0103)https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/contact/templates/contact.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1> {{ title }} </h1>
+            {% if confirm_message %}
+                <p> {{ confirm_message }} </p>
+            {% endif %}
+
+            {% if form %}
+                <form method="POST" action="https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/contact/templates/contact.html"> {% csrf_token %}
+                    <!--{{ form.as_p }}-->
+                    {{ form|crispy }}
+                    <input type="submit" value="Submit Form" class="btn btn-default">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}</body></html>

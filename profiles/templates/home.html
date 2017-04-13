@@ -1,0 +1,75 @@
+
+<!-- saved from url=(0101)https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/profiles/templates/home.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block styles %}
+    <style>
+        .jumbotron {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block jumbotron %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Theme example</h1>
+        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+      </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/profiles/templates/home.html#" role="button">View details »</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <a href="https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/profiles/templates/home.html#"><img src="./home_files/{%" static="" 'img="" home.jpg'="" %}="" class="img-responsive"></a>
+        </div>
+
+        <div class="col-md-4">
+            <!--Home-Page Log-in Module-->
+
+        {% if request.user.is_authenticated %}
+            <h3>Hello {{ request.user }}</h3>
+
+        {% else %}
+            <form class="login" method="POST" action="https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/profiles/templates/%7B%%20url%20&#39;account_login&#39;%20%%7D">
+                <!--<input type="hidden" name="csrfmiddlewaretoken" value="yOvRUhbkhvfjywfh01ZzkqwwOSKjPswvvCWgbEGE5Wb98Ej0YsfU9093p8R6m1hq">-->
+                {% csrf_token %}
+                <div id="div_id_login" class="form-group">
+                    <label for="id_login" class="control-label  requiredField">Login<span class="asteriskField">*</span> </label>
+                    <div class="controls ">
+                        <input autofocus="autofocus" class="textinput textInput form-control" id="id_login" name="login" placeholder="Username or e-mail" type="text" required="">
+                    </div>
+                </div>
+                <div id="div_id_password" class="form-group">
+                    <label for="id_password" class="control-label  requiredField">Password<span class="asteriskField">*</span> </label>
+                    <div class="controls ">
+                        <input class="textinput textInput form-control" id="id_password" name="password" placeholder="Password" type="password" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="div_id_remember" class="checkbox">
+                        <label for="id_remember" class="">
+                            <input class="checkboxinput" id="id_remember" name="remember" type="checkbox">Remember Me
+                        </label>
+                    </div>
+                </div>
+                <a class="btn btn-link button secondaryAction" href="https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/profiles/templates/%7B%%20url%20&#39;account_reset_password&#39;%20%%7D">Forgot Password?</a>
+                <a class="btn btn-link button secondaryAction" href="https://www.pythonanywhere.com/user/fnirmal/files/home/fnirmal/tryDjango/profiles/templates/%7B%%20url%20&#39;account_signup&#39;%20%%7D">Signup</a>
+                <button class="btn btn-default primaryAction" type="submit">Sign In</button>
+            </form>
+        {% endif %}
+        </div>
+
+</div>
+
+{% endblock %}
+</body></html>
